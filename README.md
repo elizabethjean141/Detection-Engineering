@@ -29,7 +29,57 @@ MITRE ATT&CK mapped detection engineering project built on a Windows/Ubuntu VM s
 | T1547.001 | Registry Run Keys | ✅ Detected |
 ---
 ## Detections
-*(Writeups coming soon)*
+## T1016 – System Network Configuration Discovery (ipconfig.exe)
+
+### Summary
+Observed execution of ipconfig.exe to retrieve network configuration details. While benign in isolation, this behavior is commonly used during early-stage discovery.
+
+---
+
+### Telemetry Source
+- Sysmon Event ID 1 (Process Creation)
+- Sysmon Event ID 5 (Process Termination)
+
+---
+
+### Detection Logic
+- Identify execution of ipconfig.exe
+- Correlate with parent process
+- Flag unusual parent-child relationships
+
+---
+
+### Example Query (Wazuh / Sysmon-style logic)
+Image="*ipconfig.exe*"
+
+---
+
+### Behavioral Context
+Normal:
+- Parent: powershell.exe, cmd.exe
+- Single execution
+
+Suspicious:
+- Parent: winword.exe, excel.exe, unknown binary
+- Repeated execution (looping behavior)
+- Short execution bursts across multiple hosts
+
+---
+
+### Why It Matters
+Indicates potential **discovery phase activity** post-compromise.  
+When combined with other signals (whoami, systeminfo), can indicate attacker reconnaissance.
+
+---
+
+### Detection Gaps
+- High false positives if not correlated with parent process
+- Requires baseline of normal administrative behavior
+
+---
+
+### MITRE ATT&CK
+T1016 – System Network Configuration Discovery
 
 ---
 ## Notes
