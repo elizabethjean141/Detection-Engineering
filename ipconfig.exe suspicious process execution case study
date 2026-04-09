@@ -1,0 +1,88 @@
+# Suspicious Process Execution – ipconfig.exe
+
+## Scenario
+
+Sysmon telemetry flagged execution of `ipconfig.exe` initiated by `powershell.exe`, prompting investigation into potential misuse, masquerading, or post-exploitation activity.
+
+---
+
+## Tools Used
+
+* Sysmon
+* TheHive
+* Windows Event Logs
+
+---
+
+## Investigation Findings
+
+### Process Details
+
+* Binary: `ipconfig.exe`
+* Path: `C:\Windows\System32\ipconfig.exe`
+* Execution: Successful
+* Termination: Normal
+
+### Parent Process Analysis
+
+* Parent Process: `powershell.exe`
+* User Context: `WINLAB-01\Analyst`
+* Assessment: Execution context consistent with expected administrative activity
+
+### Telemetry Validation
+
+* Sysmon Event ID 1 → Process Creation ✔️
+* Sysmon Event ID 5 → Process Termination ✔️
+* No gaps, duplication, or parsing errors observed
+* Timestamp alignment confirmed across events
+
+---
+
+## MITRE ATT&CK Mapping
+
+* **Tactic:** Discovery
+* **Technique:** T1016
+* **Name:** System Network Configuration Discovery
+
+---
+
+## Analysis
+
+* Process executed and terminated without anomalies
+* Binary path validated as legitimate Windows System32 location
+* Parent-child relationship consistent with expected behavior
+* No indicators of persistence, privilege escalation, or lateral movement
+* Activity aligns with standard network configuration discovery behavior
+
+---
+
+## Conclusion
+
+The execution of `ipconfig.exe` was determined to be **legitimate administrative activity**.
+
+There was:
+
+* No evidence of masquerading
+* No suspicious parent-child process behavior
+* No indicators of compromise
+
+---
+
+## Key Takeaway
+
+Legitimate binaries are not inherently safe — context determines risk.
+
+Effective detection requires:
+
+* Process lineage analysis
+* Execution context validation
+* Telemetry correlation across events
+
+Detection is not about recognizing tools —
+it’s about understanding behavior.
+
+---
+
+## Evidence
+
+(Screenshots from TheHive and Sysmon investigation can be included here)
