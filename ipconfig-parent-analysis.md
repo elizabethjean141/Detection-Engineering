@@ -82,7 +82,3 @@ Detection is not about recognizing tools —
 it's about understanding behavior.
 
 ---
-
-## Evidence
-
-(Screenshots from TheHive and Sysmon investigation can be included here)
