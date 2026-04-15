@@ -1,4 +1,5 @@
-A system that passes as human because it believes its own data
+
+Case #7 - A system that passes as human because it believes its own data
 Case overview
 Information
 
@@ -105,19 +106,7 @@ Tasks
     Due date
 
     Title
-        Analyze Behavioral Authenticity
-    Group
-        default
-    Assignee
-        elizabeth@thehive.local
-    Status
-        Completed
-    Start date
-        2026-04-15 10:16
-    Due date
-
-    Title
-        Validate Identity Baseline
+        Document Findings and Detection Gaps
     Group
         default
     Assignee
@@ -141,7 +130,19 @@ Tasks
     Due date
 
     Title
-        Document Findings and Detection Gaps
+        Analyze Behavioral Authenticity
+    Group
+        default
+    Assignee
+        elizabeth@thehive.local
+    Status
+        Completed
+    Start date
+        2026-04-15 10:16
+    Due date
+
+    Title
+        Validate Identity Baseline
     Group
         default
     Assignee
