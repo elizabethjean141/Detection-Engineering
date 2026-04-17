@@ -1,14 +1,14 @@
-# 🐝 Operation Ron's Coffee  
+# peration Ron's Coffee  
 ## Illicit Infrastructure Hosted Behind Legitimate Business
 
-### 📌 Overview
+### Overview
 This case models an investigation where a seemingly legitimate business is used to host hidden malicious or unauthorized infrastructure.
 
 The objective is to detect covert misuse of systems that appear normal on the surface but exhibit anomalous backend behavior.
 
 ---
 
-## 🧠 Scenario
+## Scenario
 A local coffee shop provides public Wi-Fi and normal business services.
 
 However, subtle anomalies trigger investigation:
@@ -28,7 +28,7 @@ Further analysis suggests the system is being used to host illicit or unauthoriz
 
 ---
 
-## 🧪 Telemetry Analysis
+## Telemetry Analysis
 
 ### Data Sources
 - Sysmon
@@ -44,14 +44,14 @@ Further analysis suggests the system is being used to host illicit or unauthoriz
 
 ---
 
-## 🔎 Contextual Analysis
+## Contextual Analysis
 Individually, these signals may appear benign.
 
 Together, they suggest intentional misuse of legitimate infrastructure.
 
 ---
 
-## ⚠️ Key Insight
+## Key Insight
 > The system was not necessarily exploited.  
 > It may have been repurposed.
 
@@ -62,7 +62,7 @@ This may indicate:
 
 ---
 
-## 🧭 MITRE ATT&CK Mapping
+## MITRE ATT&CK Mapping
 - **T1090** – Proxy
 - **T1572** – Protocol Tunneling
 - **T1046** – Network Service Discovery
@@ -71,24 +71,24 @@ This may indicate:
 
 ---
 
-## 📊 Assessment
+## Assessment
 - **Initial Access:** Unknown
 - **Persistence:** Suspected
 - **Discovery:** Observed
 - **Command and Control:** Suspected
 
-### 🔐 Confidence Level: Medium
+### Confidence Level: Medium
 
 ---
 
-## 🧾 Rationale
+## Rationale
 - Sustained abnormal network behavior
 - Infrastructure use inconsistent with business purpose
 - Indicators of concealed or unauthorized communication
 
 ---
 
-## 🚧 Recommended Next Steps
+## Recommended Next Steps
 - Identify all running services and process owners
 - Audit the host for unauthorized software
 - Inspect outbound connections for suspicious destinations
@@ -97,15 +97,15 @@ This may indicate:
 
 ---
 
-## 🐝 Beekeeper Insight
+## Beekeeper Insight
 > Not every threat breaks in.  
 > Some threats are already inside — hidden in plain sight.
 
 ---
 
-## 🔗 Related Concept
+## Related Concept
 This case is inspired by the coffee shop investigation scene in *Mr. Robot* and reframed as a detection engineering scenario focused on covert infrastructure misuse.
 
 ---
 
-## 📸 
+
