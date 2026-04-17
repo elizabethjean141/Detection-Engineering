@@ -1,0 +1,9 @@
+Simulated local account creation using native Windows utilities (net.exe) and validated detection across multiple telemetry layers.
+
+Confirmed:
+
+Process execution via Sysmon (command-line visibility)
+System-level change via Windows Security Event ID 4720
+SIEM ingestion and enrichment via Wazuh
+
+Identified MITRE ATT&CK mapping discrepancy (T1484 vs T1136), highlighting the need for detection tuning beyond default configurations.
