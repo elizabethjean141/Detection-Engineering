@@ -1,4 +1,4 @@
-# peration Ron's Coffee  
+# Operation Ron's Coffee  
 ## Illicit Infrastructure Hosted Behind Legitimate Business
 
 ### Overview
@@ -20,7 +20,7 @@ Further analysis suggests the system is being used to host illicit or unauthoriz
 
 ---
 
-## 🔍 Investigation Focus
+## Investigation Focus
 - Identification of abnormal network behavior
 - Detection of hidden or unauthorized services
 - Correlation between legitimate front-end and suspicious back-end activity
@@ -94,17 +94,6 @@ This may indicate:
 - Inspect outbound connections for suspicious destinations
 - Review firewall exposure and listening ports
 - Perform host forensic review
-
----
-
-## Beekeeper Insight
-> Not every threat breaks in.  
-> Some threats are already inside — hidden in plain sight.
-
----
-
-## Related Concept
-This case is inspired by the coffee shop investigation scene in *Mr. Robot* and reframed as a detection engineering scenario focused on covert infrastructure misuse.
 
 ---
 
