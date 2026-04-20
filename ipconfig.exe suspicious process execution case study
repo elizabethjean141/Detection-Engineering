@@ -1,87 +1,40 @@
-# Suspicious Process Execution – ipconfig.exe
+Investigation Report: Suspicious Process Execution — ipconfig.exe
+T1016 — System Network Configuration Discovery
 
-## Scenario
+Scenario
+Sysmon telemetry flagged execution of ipconfig.exe initiated by powershell.exe, prompting investigation into potential misuse, masquerading, or post-exploitation activity.
 
-Sysmon telemetry flagged execution of `ipconfig.exe` initiated by `powershell.exe`, prompting investigation into potential misuse, masquerading, or post-exploitation activity.
+Tools Used
+ToolPurposeSysmonEndpoint telemetry — process creation and terminationTheHiveCase management and investigation trackingWindows Event LogsCorroborating security event data
 
----
+Investigation Findings
+Process Details
+FieldValueBinaryipconfig.exePathC:\Windows\System32\ipconfig.exeExecutionSuccessfulTerminationNormal
 
-## Tools Used
+Parent Process Analysis
+FieldValueParent Processpowershell.exeUser Context<WINLAB-01>\AnalystAssessmentExecution context consistent with expected administrative activity
 
-* Sysmon
-* TheHive
-* Windows Event Logs
+Telemetry Validation
+EventDescriptionStatusSysmon Event ID 1Process Creation✅ CapturedSysmon Event ID 5Process Termination✅ CapturedTimestamp alignmentEvents correlated across sources✅ ConfirmedParsing errorsLog integrity check✅ None observedGaps or duplicationTelemetry completeness✅ None observed
 
----
+MITRE ATT&CK Mapping
+TacticTechniqueNameDiscoveryT1016System Network Configuration Discovery
 
-## Investigation Findings
+Analysis
+IndicatorFindingAssessmentBinary pathC:\Windows\System32\ipconfig.exe✅ Legitimate — validated System32 locationParent processpowershell.exe✅ Consistent with expected administrative behaviorUser contextAnalyst on WINLAB-01✅ Authorized userProcess executionCompleted without anomalies✅ NormalProcess terminationNormal exit✅ NormalPersistence indicatorsNone✅ CleanPrivilege escalationNone✅ CleanLateral movementNone✅ CleanMasqueradingNone — binary path validated✅ Clean
 
-### Process Details
+Conclusion
+The execution of ipconfig.exe was determined to be legitimate administrative activity.
 
-* Binary: `ipconfig.exe`
-* Path: `C:\Windows\System32\ipconfig.exe`
-* Execution: Successful
-* Termination: Normal
+✅ No evidence of masquerading
+✅ No suspicious parent-child process behavior
+✅ No indicators of compromise
+✅ Telemetry complete and consistent across all sources
 
-### Parent Process Analysis
+Verdict: False Positive — Confirmed Benign
 
-* Parent Process: `powershell.exe`
-* User Context: `WINLAB-01\Analyst`
-* Assessment: Execution context consistent with expected administrative activity
-
-### Telemetry Validation
-
-* Sysmon Event ID 1 → Process Creation ✔️
-* Sysmon Event ID 5 → Process Termination ✔️
-* No gaps, duplication, or parsing errors observed
-* Timestamp alignment confirmed across events
-
----
-
-## MITRE ATT&CK Mapping
-
-* **Tactic:** Discovery
-* **Technique:** T1016
-* **Name:** System Network Configuration Discovery
-
----
-
-## Analysis
-
-* Process executed and terminated without anomalies
-* Binary path validated as legitimate Windows System32 location
-* Parent-child relationship consistent with expected behavior
-* No indicators of persistence, privilege escalation, or lateral movement
-* Activity aligns with standard network configuration discovery behavior
-
----
-
-## Conclusion
-
-The execution of `ipconfig.exe` was determined to be **legitimate administrative activity**.
-
-There was:
-
-* No evidence of masquerading
-* No suspicious parent-child process behavior
-* No indicators of compromise
-
----
-
-## Key Takeaway
-
-Legitimate binaries are not inherently safe — context determines risk.
-
-Effective detection requires:
-
-* Process lineage analysis
-* Execution context validation
-* Telemetry correlation across events
-
-Detection is not about recognizing tools —
-it’s about understanding behavior.
-
----
+Process Lineage
 
 
 
+ 
