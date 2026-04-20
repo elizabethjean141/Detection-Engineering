@@ -1,97 +1,59 @@
-Case #4 - Operation Eagle Eye: Unauthorized System Orchestratrion via AI-Controlled Infrastrure
-Case overview
-Information
+Case #4 — Operation Eagle Eye: Unauthorized System Orchestration via AI-Controlled Infrastructure
 
-Title: Operation Eagle Eye: Unauthorized System Orchestratrion via AI-Controlled Infrastrure
-Severity: MEDIUM
-TLP: AMBER
-PAP: AMBER
-Assignee: elizabeth@thehive.local
-Incident start time: 2026-04-14 20:18
-Case creation time: 2026-04-14 20:20
-Case close time:
+🔒 TLP: AMBER — For internal use and trusted partners only.
+
+Case Overview
+FieldValueTitleOperation Eagle Eye: Unauthorized System Orchestration via AI-Controlled InfrastructureSeverityMEDIUMTLPAMBERPAPAMBERAssignee<analyst@soc.local>Incident Start Time2026-04-14 20:18Case Creation Time2026-04-14 20:20Case Close Time—StatusIn Progress
+
 Description
+Eagle Eye demonstrates a hybrid threat model where the adversary uses social engineering (T1204), legitimate system abuse (T1078), and application-layer C2 (T1071) to orchestrate a real-world attack — with humans acting as the execution layer instead of malware.
+This case represents an emerging threat pattern where AI-controlled infrastructure is leveraged to coordinate multi-vector attacks across physical and digital systems simultaneously.
 
-Eagle Eye demonstrates a hybrid threat model where the adversary uses social engineering (T1204), legitimate system abuse (T1078), and application-layer C2 (T1071), to orchestrate a real-world attack, with humans acting as the execution layer instead of malware.
-Additional information
-Summary
+MITRE ATT&CK TTPs
+TacticTechniquePattern IDOccur DateCommand and ControlApplication Layer ProtocolT10712026-04-15 20:21Command and ControlRemote Access SoftwareT12192026-04-15 20:23Command and ControlDynamic ResolutionT15682026-04-15 20:24Command and ControlIngress Tool TransferT11052026-04-15 06:01CollectionData from Local SystemT10052026-04-15 20:23Privilege EscalationExploitation for Privilege EscalationT10682026-04-15 21:01ExecutionCommand and Scripting InterpreterT10592026-04-15 21:01ExecutionUser ExecutionT12042026-04-15 21:00Defense EvasionMasqueradingT10362026-04-15 06:00Defense EvasionValid AccountsT10782026-04-15 05:59Defense EvasionImpair DefensesT15622026-04-15 05:59DiscoverySystem Information DiscoveryT10822026-04-15 06:01ImpactInhibit System RecoveryT14902026-04-15 06:02ImpactData DestructionT14852026-04-15 06:02
+
 Observables
+Data TypeValueIOCTLPotherIdentity/AccessSightedAMBER
+Observable Detail
+Identity/Access
 
-    Data type
-    other
-    Data
-    Identity/Access
-    Ioc
-    Sighted
-    Message
-    Identity/Access- Twin identity usage, Jerry impersonating Ethan, access attempts tied to high-privilege identity, mismatch between identity behavior and baseline. Communication /C2- Repeated inbound instructions via phone calls, SMS/automated voice, multi-channel coordination such as public devices, speakers, displays. Financial activity- sudden large deposit into user account, rapid withdrawal/resource acquisition, transactions inconsistent with user history. Behavioral indicators- user executing precise, step-by-step actions, lack of deviation from instructions, actions without clear user intent. Infrastructure manipulation- traffic light pattern anomalies, elevator/transit system interface, coordinated system behavior across unrelated services. System-level indicators- centralized control signals across multiple endpoints, unusual command sequences across devices, remote triggering of physical systems.
-    Created at
-    2026-04-15 06:24
-    Tlp
-    AMBER
+Twin identity usage detected — impersonation of high-privilege account
+Access attempts tied to high-privilege identity
+Mismatch between identity behavior and established baseline
 
-TTPs
-Technique	Pattern id	Occur date
-Command and Control	T1071 Application Layer Protocol	2026-04-15 20:21
-Command and Control	T1219 Remote Access Software	2026-04-15 20:23
-Command and Control	T1568 Dynamic Resolution	2026-04-15 20:24
-Collection	T1005 Data from Local System	2026-04-15 20:23
-Privilege Escalation	T1068 Exploitation for Privilege Escalation	2026-04-15 21:01
-Execution	T1059 Command and Scripting Interpreter	2026-04-15 21:01
-Execution	T1204 User Execution	2026-04-15 21:00
-Defense Evasion	T1036 Masquerading	2026-04-15 06:00
-Defense Evasion	T1078 Valid Accounts	2026-04-15 05:59
-Defense Evasion	T1562 Impair Defenses	2026-04-15 05:59
-Impact	T1490 Inhibit System Recovery	2026-04-15 06:02
-Command and Control	T1105 Ingress Tool Transfer	2026-04-15 06:01
-Discovery	T1082 System Information Discovery	2026-04-15 06:01
-Impact	T1485 Data Destruction	2026-04-15 06:02
-Tasks
+Communication / C2
 
-    Title
-        Unusual Device Command Activity
-    Group
-        default
-    Assignee
-        elizabeth@thehive.local
-    Status
-        Completed
-    Start date
-        2026-04-15 06:26
-    Due date
+Repeated inbound instructions via phone calls and SMS/automated voice
+Multi-channel coordination across public devices, speakers, and displays
 
-    Title
-        Centralized Control Pattern Detection
-    Group
-        default
-    Assignee
-    Status
-        Completed
-    Start date
-        2026-04-15 06:26
-    Due date
+Financial Activity
 
-    Title
-        Behavioral Manipulation Indicators
-    Group
-        default
-    Assignee
-    Status
-        Completed
-    Start date
-        2026-04-15 06:26
-    Due date
+Sudden large deposit into user account
+Rapid withdrawal and resource acquisition
+Transactions inconsistent with user history
 
-    Title
-        Infrastructure Abuse Simulation
-    Group
-        default
-    Assignee
-    Status
-        Completed
-    Start date
-        2026-04-15 06:26
-    Due date
+Behavioral Indicators
 
-This document is classified TLP:AMBER
+User executing precise, step-by-step actions without deviation
+Actions executed without clear user intent
+Behavior consistent with human-as-execution-layer model
+
+Infrastructure Manipulation
+
+Traffic light pattern anomalies detected
+Elevator and transit system interface activity
+Coordinated system behavior across unrelated services
+
+System-Level Indicators
+
+Centralized control signals across multiple endpoints
+Unusual command sequences across devices
+Remote triggering of physical systems
+
+
+Investigation Tasks
+TaskStatusNotesUnusual Device Command Activity✅ CompletedCentralized command signals identified across unrelated endpointsCentralized Control Pattern Detection✅ CompletedAI-orchestrated C2 pattern confirmedBehavioral Manipulation Indicators✅ CompletedHuman-as-execution-layer behavior documentedInfrastructure Abuse Simulation✅ CompletedPhysical and digital system coordination confirmed
+
+Threat Model Analysis
+
 
