@@ -1,167 +1,75 @@
-Case #2 - Operation Rogue Worker: Suspciious Discovery Activity
-Case overview
-Information
+Case #2 — Operation Rogue Worker: Suspicious Discovery Activity
 
-Title: Operation Rogue Worker: Suspciious Discovery Activity
-Severity: MEDIUM
-TLP: AMBER
-PAP: AMBER
-Assignee: elizabeth@thehive.local
-Incident start time: 2026-04-15 07:27
-Case creation time: 2026-04-14 07:43
-Case close time:
+🔒 TLP: AMBER — For internal use and trusted partners only.
+
+
+Case Overview
+FieldValueTitleOperation Rogue Worker: Suspicious Discovery ActivitySeverityMEDIUMTLPAMBERPAPAMBERAssignee<analyst@soc.local>Incident Start Time2026-04-15 07:27Case Creation Time2026-04-14 07:43Case Close Time—StatusInvestigation In Progress
+
 Description
-
 This case documents a Beekeeper Protocol investigation into suspicious discovery-related process execution observed in Sysmon Event ID 1 telemetry.
-Objective:
+Objective
 Determine whether observed command execution reflects legitimate administrative behavior or activity that deviates from established baseline process patterns.
-Scenario:
+Scenario
 Execution of discovery-related commands was reviewed, with particular attention to ipconfig.exe and associated process lineage. Analysis focused on execution context, parent-child relationships, and alignment with known-good administrative behavior.
-Analysis Approach:
--Review Sysmon Event ID 1 process creation telemetry.
--Validate parent-child process relationships.
--Compare observed execution against baseline administrative activity.
--Determine whether command usage is normal, suspicious, or indicative of compromise.
--Map observed behavior to relevant MITRE ATT&CK techniques.
-MITRE ATT&CK mapping:
--T1016.001- Internet Connection Discovery
--T1033- System Owner/User Discovery
--T1082- System Information Discovery
--T1204- User executrion
-Initial Assessment:
+Analysis Approach
+
+Review Sysmon Event ID 1 process creation telemetry
+Validate parent-child process relationships
+Compare observed execution against baseline administrative activity
+Determine whether command usage is normal, suspicious, or indicative of compromise
+Map observed behavior to relevant MITRE ATT&CK techniques
+
+
+Initial Assessment
 Discovery commands may be legitimate in isolation, but context determines investigative value. Command execution, parent process lineage, and behavioral consistency with baseline must be validated before escalation.
-Beekeeper Insight:
-It is not the command alone that matters- it is the context around the command,. A legitimate tool executed from an unexpected parent process may indicate reconnaissance or early-stage adversary activity.
-Current Status:
-Investigation in progress. Parent-child relationships, command frequency, and execution context require validation against baseline before final determination.
-Precursor Activity:
-Initial access vector potentially linked to social engineering activity documented in:
-Operation Poisoned Nectar: Vishing-Based Initial Access.
-This reinforces the importance of correlating user-driven events with endpoint telemetry.
-Additional information
-Summary
+
+Beekeeper Insight
+
+It is not the command alone that matters — it is the context around the command.
+A legitimate tool executed from an unexpected parent process may indicate reconnaissance or early-stage adversary activity.
+
+
+Precursor Activity
+
+⚠️ Linked Case: Initial access vector potentially linked to social engineering activity documented in Case #3 — Operation Poisoned Nectar: Vishing-Based Initial Access.
+
+This reinforces the importance of correlating user-driven events with endpoint telemetry. Discovery activity following a vishing-based initial access event significantly elevates the threat assessment.
+
 Observables
+1. Victim Endpoint
+FieldValueData TypehostnameData<VICTIM-PC>IOCSightedTLPAMBERCreated2026-04-14 07:57
+Detail: Victim endpoint compromised via vishing attack following phishing lure. User initiated contact with threat actor posing as technical support. Attacker gained remote access and conducted fraudulent financial transactions under the guise of account recovery, resulting in total loss of savings.
 
-    Data type
-    hostname
-    Data
-    VICTIM-PC
-    Ioc
-    Sighted
-    Message
-    Victim endpoint compromised via vishing attack following phishing lure. User initiated contact with threat actor posing as technical support. Attacker gained remote access and conducted fraudulent financial transactions under the guise of account recovery,resulting in the total loss of savings.
-    Created at
-    2026-04-14 07:57
-    Tlp
-    AMBER
+2. Network Enumeration Binary
+FieldValueData TypefilenameDataipconfig.exeIOCSightedTLPAMBERCreated2026-04-14 07:51
+Detail: ipconfig.exe executed to enumerate network configuration on victim host, consistent with T1016 — System Network Configuration Discovery.
 
-    Data type
-    other
-    Data
-    Malware names: RafSys.Ras.Spy. Trojan.BOSII.Download.
-    Ioc
-    Sighted
-    Message
-    Ficitious malware names displayed in scareware popup to create urgency and compel victim to call threat actor.
-    Created at
-    2026-04-14 08:16
-    Tlp
-    AMBER
+3. Malicious URL
+FieldValueData TypeurlDatahttp://friendlyfriend[.]net (defanged)IOCSightedTLPAMBERCreated2026-04-14 08:09
+Detail: Malicious website directed to victim by threat actor posing as tech support. Victim instructed to click Install button under the pretext of a system update, resulting in malware deployment.
 
-    Data type
-    url
-    Data
-    http://friendlyfriend.net
-    Ioc
-    Sighted
-    Message
-    Malicious website directed to victim by threat actor posing as tech support. Victim instructed to click Install button under the pretext of a system update, resulting in malware deployment.
-    Created at
-    2026-04-14 08:09
-    Tlp
-    AMBER
+4. Fraudulent Phone Number
+FieldValueData TypeotherData1-888-555-0199IOCSightedTLPAMBERCreated2026-04-14 08:14
+Detail: Fraudulent tech support number displayed via scareware popup, used to initiate vishing attack against victim.
 
-    Data type
-    other
-    Data
-    Phone number 1-888-555-0199.
-    Ioc
-    Sighted
-    Message
-    Fraudulent tech support number displayed via scareware popup, used to initiate vishing attack against victum.
-    Created at
-    2026-04-14 08:14
-    Tlp
-    AMBER
+5. Fictitious Malware Names
+FieldValueData TypeotherDataRafSys.Ras.Spy, Trojan.BOSII.DownloadIOCSightedTLPAMBERCreated2026-04-14 08:16
+Detail: Fictitious malware names displayed in scareware popup to create urgency and compel victim to call threat actor.
 
-    Data type
-    filename
-    Data
-    ipconfig.exe
-    Ioc
-    Sighted
-    Message
-    ipconfig.exe executed to enumerate network configuration on victim host, consistent with T1016- System Network Configuration Discovery.
-    Created at
-    2026-04-14 07:51
-    Tlp
-    AMBER
+6. Victim IP Address
+FieldValueData TypeipData<REDACTED>IOCSightedTLPAMBERCreated2026-04-14 08:18
+Detail: Victim IP address displayed in scareware popup to add legitimacy to fraudulent infection warning.
 
-    Data type
-    ip
-    Data
-    109.255.107.161
-    Ioc
-    Sighted
-    Message
-    Victim IP address displayed in scareware popup to add legitimacy to fraudulent infection warning.
-    Created at
-    2026-04-14 08:18
-    Tlp
-    AMBER
+MITRE ATT&CK TTPs
+TacticTechniquePattern IDOccur DateDiscoveryInternet Connection DiscoveryT1016.0012026-04-14 07:46DiscoverySystem Owner/User DiscoveryT10332026-04-14 07:46DiscoverySystem Information DiscoveryT10822026-04-14 07:47ExecutionMalicious FileT1204.0022026-04-14 08:19
 
-TTPs
-Technique	Pattern id	Occur date
-Discovery	T1016.001 Internet Connection Discovery	2026-04-14 07:46
-Discovery	T1033 System Owner/User Discovery	2026-04-14 07:46
-Discovery	T1082 System Information Discovery	2026-04-14 07:47
-Execution	T1204.002 Malicious File	2026-04-14 08:19
-Tasks
+Investigation Tasks
+TaskStatusStart DateValidate Parent-Child Process Lineage✅ Completed2026-04-14 09:19Map Observed Behavior to MITRE ATT&CK✅ Completed2026-04-14 09:19Document Findings and Final Assessment✅ Completed2026-04-14 09:19
 
-    Title
-        Validate parent-child process lineage
-    Group
-        default
-    Assignee
-        elizabeth@thehive.local
-    Status
-        Completed
-    Start date
-        2026-04-14 09:19
-    Due date
+Attack Chain
 
-    Title
-        Document findings and final assessment
-    Group
-        default
-    Assignee
-        elizabeth@thehive.local
-    Status
-        Completed
-    Start date
-        2026-04-14 09:19
-    Due date
 
-    Title
-        Map observed behavior to MITRE ATT&CK
-    Group
-        default
-    Assignee
-        elizabeth@thehive.local
-    Status
-        Completed
-    Start date
-        2026-04-14 09:19
-    Due date
+  
 
-This document is classified TLP:AMBER
+ 
