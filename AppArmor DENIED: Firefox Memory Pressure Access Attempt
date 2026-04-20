@@ -1,0 +1,12 @@
+Case #12 — AppArmor DENIED: Firefox Memory Pressure Access Attempt
+
+🔒 TLP: AMBER — For internal use and trusted partners only.
+
+
+Case Overview
+FieldValueTitleAppArmor DENIED: Firefox Memory Pressure Access AttemptSeverityLOWTLPAMBERPAPAMBERAssignee<analyst@soc.local>Detection Time2026-04-20 09:34:48Tagswazuh, apparmor, linux, firefoxStatusResolved — False Positive
+
+Source Alert
+FieldValueWazuh Rule ID52002Rule Level3Rule DescriptionAppArmor DENIEDAlert ID1776692088.23534567Fired Times285Agent<WAZUH-MANAGER-HOST> (ID: 000)Log Source/var/log/syslogDetection Time2026-04-20 09:34:47
+
+Raw Alert (Sanitized)
