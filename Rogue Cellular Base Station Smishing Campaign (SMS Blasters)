@@ -1,0 +1,108 @@
+Source:
+Publisher- National Post
+Author- Chris Knight
+Title: "Toronto Police seize 'SMS blasters', a cybercrime weapon neverr before seen in Canada"
+Publication Date: April 23, 2026
+Case #23 - Rogue Cellular Base Station Smishing Campaign (Toronto- Project Lighthouse)
+Case overview
+Information
+
+Title: Rogue Cellular Base Station Smishing Campaign (Toronto- Project Lighthouse)
+Severity: CRITICAL
+TLP: AMBER+STRICT
+PAP: AMBER
+Assignee: 
+Incident start time: 2026-04-25 19:21
+Case creation time: 2026-04-25 19:31
+
+Description
+
+Attack Chain:
+Initial Access- Victim phone enters range of rogue tower.
+Coercion Phase:
+Device forces phone to disconnect from real network.
+Phone reconnects to attacker-controlled tower.
+Control/Interception:
+Attacker now:
+Sees device identifiers (IMSI)
+Controls messaging channel
+Delivery (Smishing):
+Sends fake texts:
+Banks
+Canada Post
+Toll services (407 ETR)
+Objective:
+Credential Theft
+Financial Fraud
+This bypasses traditional cybersecurity controls entirely. There is no:
+Endpoint detection
+Antivirus
+Email filtering
+Network firewall
+Because this attack happens at the cellular infrastructure layer.
+What breaks normal behavior:
+There is a sudden network downgrade from 4G/5G to 2G.
+This is often invisible to the user.
+There is loss of service:
+There is a temporary disconnection.
+SMS anomalies:
+High-volume messages
+Unexpected sender patterns
+Urgency + links.
+What telemetry exists:
+Even though this is RF-layer, there are downstream artifacts:
+On the device:
+SMS logs
+Carrier changes
+Signal strength anomalies
+On back-end systems:
+Fraud detection triggers (bank logins)
+Account takeover attempts
+On network providers:
+Tower handshake anomalies
+Rogue base station signatures
+Additional information
+Summary
+Observables
+
+    Data type
+    other
+    Data
+    Geographic clustering.
+    Ioc
+    Sighted
+    Message
+    Created at
+    2026-04-25 19:33
+   
+
+    Data type
+    other
+    Data
+    SMS sender patterns
+    Ioc
+    Sighted
+    Message
+    Created at
+    2026-04-25 19:32
+    
+
+    Data type
+    other
+    Data
+    Phishing URLs
+    Ioc
+    Sighted
+    Message
+    Created at
+    2026-04-25 19:32
+   
+
+TTPs
+T1467 — Rogue Cellular Base Station — the primary anchor technique; directly maps to the IMSI catcher / fake tower behavior
+T1638 — Adversary-in-the-Middle — covers the interception stage once devices connect to the rogue tower
+T1660 — Phishing (SMS/Smishing) — the delivery mechanism
+T1539 — Steal Web Session Cookie — flagged as inferred, since banking credential theft was the stated objective but specific methods weren't disclosed in public reporting
+
+
+
