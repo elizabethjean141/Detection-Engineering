@@ -1,0 +1,82 @@
+Case #25 - China-Linked threat actors use consumer device botnets to evade detection, warn UK and partners
+Case overview
+
+Title: China-Linked threat actors use consumer device botnets to evade detection, warn UK and partners
+Severity: MEDIUM
+
+Assignee: 
+Incident start time: 2026-04-25 21:31
+Case creation time: 2026-04-25 21:47
+
+Description
+
+China-nexus covert proxy networks using large scale IoT botnets (e.g., Raptor Train) to enable stealthy, persistent cyber operations and evade traditional detection.
+Defensive Guidance:
+Baseline Controls (All Organizations):
+Enforce multi-factor authentication (MFA)
+Map and baseline internet-facing assets
+Monitor VPN and remote access traffic
+Use dynamic threat intelligence feeds
+Reduce unnecessary internet exposure
+Intermediate Controls (Moderate Risk):
+Implement IP allow lists
+Apply geographic filtering
+Introduce behavioral traffic analysis
+Deploy Zero Trust principles
+Use SSL/TLS machine certificate validation
+Advanced Controls (High-Risk/Large Organizations):
+Active threat hunting for covert network activity
+NetFlow analysis for traffic pattern anomalies
+Integration of dynamic block lists and alerting
+Tracking evolving attacker infrastructure
+Machine learning-based anomaly detection
+Framework Alignment:
+National Cyber Security Center Cyber Assessment Framework (CAF)
+National Cyber Security Center Cyber Essentials
+Campaign Context: Raptor Train Botnet
+Discovered by: Lumen Black Lotus Labs
+Associated with: Flax Typoon
+Also known as: Ethereal Panda/RedJuliett
+Key Facts:
+Active since May 2020
+Peak size- 60,000 devices (June 2023)
+Total compromsed- 200,000 devices
+Device Types:
+SOHO routers
+NAS systems
+DVR/NVR devices
+IP cameras
+Purpose:
+Proxy infrastructure
+Traffic Obfuscation
+Attack routing
+Attribution evasion
+Key Insight:
+These botnets are not just for DDoS- they are operational infrastructure for nation-state activity.
+Detection Challenges:
+Rapid infrastructure rotation (IOC extinction)
+Shared infrastructure across multiple threat actors
+Traffic originates from legitimate residential IPs
+Lack of static indicators
+High false-positive risk if not baselined
+Detection Strategy:
+Focus shifts from indicators to behavior
+Key Signals:
+Abnormal VPN usage patterns
+Geographic inconsistencies
+Session anomalies
+Unusual traffic from edge devices
+Short-lived, high-churn connections
+Additional information
+Summary
+Observables
+
+TTPs
+Technique	Pattern id	Occur date
+Command and Control	T1090 Proxy	2026-04-25 05:47
+Impact	T1496 Resource Hijacking	2026-04-25 05:47
+Discovery	T1046 Network Service Scanning	2026-04-25 05:47
+Command and Control	T1001 Data Obfuscation	2026-04-25 05:47
+Tasks
+
+
