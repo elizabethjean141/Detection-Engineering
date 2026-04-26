@@ -1,0 +1,89 @@
+Case overview
+Information
+
+Title: RF Relay & Replay Attack on Keyless Entry Vehicles- Detection and Analysis
+Severity: HIGH
+TLP: AMBER
+PAP: AMBER
+Assignee: 
+Incident start time: 2026-04-26 07:31
+Case creation time: 2026-04-26 07:47
+Description
+
+Source:
+Publisher: Security Affairs
+Author: Pieluigi Paganini
+Date: May 5, 2016
+Supporting demonstration: Samy Kamkar
+A key-less vehicle entry attack leveraging radio frequency (rf) signal interception and relay techniques allows attackers to unlock and potentially steal vehicles without physical keys. The attack exploits weaknesses in how vehicles trust key fob signals, enabling unauthorized access through replay or relay of legitimate authentication signals.
+Attack Chain:
+Initial Condition:
+Key fob present (inside home or recently used).
+Signal capture/relay:
+Attacker captures or relays RF signal from key fob.
+Signal manipulation:
+Replay (RollJam-Style) OR real-time relay.
+Vehicle Deception:
+Vehicle interprets signal as valid key presence.
+Access:
+Doors unlock without forced entry.
+Escalation (Observed in some cases):
+Access to OBD port
+Key programming
+Engine start and vehicle theft.
+Behavioral indicators:
+Theft occurs while key remains inside residence.
+Often occurs overnight or when vehicle is unattended.
+Technical indicators (RF layer):
+Unauthorized signal amplification or relay (not typically logged)
+Detection opportunities:
+Correlate:
+Unlock events without proximity validation.
+Monitor:
+Repeated vehicle access anomalies (if telemetry available)
+Investigate:
+Theft with no physical tampering.
+Detection is limited due to lack of traditional logging. Focus shifts to behavioral correlation.
+Threat context:
+This attack method has evolved from early replay-based techniques (RollJam) to modern relay attacks that extend key fob signals in real time.
+The technique remains effective due to widespread adoption of keyless entry systems and lack of distance validation in RF authentication.
+Impact assessment:
+Vehicle left without visible intrusion.
+Financial loss.
+Operational disruption for victims (gig workers, healthcare, field services).
+Remediation/mitigation:
+Individual controls:
+Store keys in RF-shielded (Faraday) pouches.
+Keep keys away from entry points.
+Disable passive entry if possible.
+System-level controls:
+Distance bounding (UWB-based systems)
+Motion-detection key fob sleep modes.
+Stronger RF authentication protocols.
+Chain of custody:
+Evidence origin: Open source reporting (Security Affairs).
+Collection method: manual extraction and analysis.
+Verification level: secondary source (journalistic and demonstration-based).
+Handling notes: no direct RF artifacts captured.
+Note- The attack does not exploit software vulnerabilities but instead abuses trust in RF signal presence. This highlights a broader pattern where systems fail not do to compromise, but due to assumptions regarding signal legitimacy.
+Additional information
+
+Observables
+
+    Data type
+    other
+    Data
+    Physical Indicators
+    Ioc
+    Sighted
+    Message
+    No forced entry. Vehicle unlock event without owner interaction.
+    Created at
+    2026-04-26 07:48
+    Tlp
+    AMBER
+
+TTPs
+Technique	Pattern id	Occur date
+Credential Access	T1557 Adversary-in-the-Middle	
+Impersonation Technique T1656 Defense Evasion 
